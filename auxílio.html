@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Auxílio V5 - OPPO A60</title>
+    <style>
+        body { background-color: #050a14; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .panel { background: rgba(10, 20, 40, 0.95); border: 2px solid #0055ff; border-radius: 20px; width: 90%; max-width: 400px; padding: 25px; box-shadow: 0 0 20px #0044cc; }
+        h2 { text-align: center; color: #0088ff; font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
+        .option { background: rgba(255,255,255,0.05); margin-bottom: 12px; padding: 14px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid #0055ff; }
+        .text-info p { margin: 0; font-weight: bold; font-size: 0.95rem; }
+        .text-info span { font-size: 0.75rem; color: #888; display: block; }
+        .switch { position: relative; width: 44px; height: 22px; }
+        .switch input { opacity: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #333; border-radius: 22px; transition: .4s; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: .4s; }
+        input:checked + .slider { background: #0055ff; }
+        input:checked + .slider:before { transform: translateX(22px); }
+        .btn-ativar { width: 100%; padding: 16px; background: linear-gradient(45deg, #0044cc, #0088ff); border: none; color: white; font-weight: bold; border-radius: 10px; margin-top: 15px; cursor: pointer; text-transform: uppercase; }
+        #status-box { margin-top: 20px; display: none; text-align: center; }
+        #msg { font-family: monospace; font-size: 0.85rem; color: #00ff00; margin-bottom: 10px; }
+        .bar-bg { width: 100%; height: 6px; background: #111; border-radius: 10px; overflow: hidden; }
+        .bar-fill { width: 0%; height: 100%; background: #00ff00; box-shadow: 0 0 10px #00ff00; transition: 0.3s; }
+    </style>
+</head>
+<body>
+
+<div class="panel">
+    <h2>AUXÍLIO V5 - OPPO</h2>
+
+    <div class="option">
+        <div class="text-info"><p>Aimbot Legit</p><span>Melhora alinhamento da mira</span></div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+    <div class="option">
+        <div class="text-info"><p>Precisão Full</p><span>Aumenta precisão em até 5x</span></div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+    <div class="option">
+        <div class="text-info"><p>Reduzir Recuo</p><span>Remove 60% do recuo AR/SMG</span></div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+    <div class="option">
+        <div class="text-info"><p>Aumentar Desempenho</p><span>Otimização FPS OPPO A60</span></div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+
+    <button class="btn-ativar" id="btn" onclick="injetar()">ATIVAR FUNÇÕES</button>
+
+    <div id="status-box">
+        <div id="msg">Aguardando...</div>
+        <div class="bar-bg"><div class="bar-fill" id="fill"></div></div>
+    </div>
+</div>
+
+<script>
+    function injetar() {
+        const btn = document.getElementById('btn');
+        const box = document.getElementById('status-box');
+        const msg = document.getElementById('msg');
+        const fill = document.getElementById('fill');
+        
+        btn.disabled = true;
+        btn.innerText = "ATIVANDO...";
+        box.style.display = "block";
+
+        const etapas = [
+            { t: "Limpando logs do sistema...", p: 25 },
+            { t: "Aplicando Aimbot & Precisão...", p: 50 },
+            { t: "Removendo Recuo das armas...", p: 75 },
+            { t: "FUNÇÕES ATIVADAS COM SUCESSO!", p: 100 }
+        ];
+
+        let i = 0;
+        const timer = setInterval(() => {
+            if(i < etapas.length) {
+                msg.innerText = etapas[i].t;
+                fill.style.width = etapas[i].p + "%";
+                i++;
+            } else {
+                clearInterval(timer);
+                btn.innerText = "CONCLUÍDO";
+                setTimeout(() => {
+                    alert("Otimização concluída para o seu OPPO A60!");
+                }, 500);
+            }
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>
